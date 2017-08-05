@@ -1,0 +1,15 @@
+{
+  "server": {
+    "port": 8080,
+    "bodyLimit": "1mb",
+    "corsHeaders": ["Link"]
+  },
+  "db": {
+    "uri": "mongodb://localhost:27017",
+    "database": "/mongoreact"
+  },
+  "ui": {
+    "index": "build/index.html",
+    "devPort": 3000
+  }
+}
