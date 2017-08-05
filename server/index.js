@@ -1,9 +1,10 @@
 import http from "http";
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import api from "./routes/api";
 import ui from "./routes/ui";
-import config from "./config.json";
+import config from "../config.json";
 
 let MongoClient = require("mongodb").MongoClient;
 let db;
@@ -18,6 +19,12 @@ MongoClient.connect(config.db.uri + config.db.database, (err, database) => {
   app.use(
     bodyParser.json({
       limit: config.bodyLimit
+    })
+  );
+
+  app.use(
+    cors({
+      exposedHeaders: config.server.corsHeaders
     })
   );
 
