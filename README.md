@@ -7,7 +7,7 @@ Mongo + Express + React on NodeJS
 Clone this repository:
 
 ```
-git clone ...
+git clone git@github.com:stlouisweb/simple-mern.git
 ```
 
 Then install the modules:
