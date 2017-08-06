@@ -4,7 +4,7 @@ import "./App.css";
 import config from "./config.json";
 import "whatwg-fetch";
 
-const api = `${config[process.env.NODE_ENV].SERVER_URL}/api`;
+const api = `${config.development.SERVER_URL}/api`;
 
 class App extends Component {
   constructor(props) {

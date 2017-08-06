@@ -1,4 +1,5 @@
 import http from "http";
+import path from "path";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -30,6 +31,9 @@ MongoClient.connect(config.db.uri + config.db.database, (err, database) => {
 
   // api router
   app.use("/api", api(config, db));
+  // ui router
+  console.log("\n\n\n" + __dirname + "\n\n\n");
+  app.use("/", express.static(path.join(__dirname, "client")));
 
   app.listen(config.server.port);
   console.log("Server listening on port " + config.server.port);
