@@ -4,7 +4,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import api from "./routes/api";
-import ui from "./routes/ui";
 import config from "../config.json";
 
 let MongoClient = require("mongodb").MongoClient;
@@ -32,12 +31,8 @@ MongoClient.connect(config.db.uri + config.db.database, (err, database) => {
   // api router
   app.use("/api", api(config, db));
   // ui router
-  console.log("\n\n\n" + __dirname + "\n\n\n");
   app.use("/", express.static(path.join(__dirname, "client")));
 
   app.listen(config.server.port);
   console.log("Server listening on port " + config.server.port);
 });
-
-// ui router
-//app.use("/", ui({ config, db }));
